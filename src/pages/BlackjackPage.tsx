@@ -138,7 +138,7 @@ export default function BlackjackPage() {
         <p>Press Deal to start a round against the dealer.</p>
       ) : (
         <>
-          <div className="bj-hand" aria-label="Dealer's hand">
+          <div className="bj-hand" role="group" aria-label="Dealer's hand">
             <h2>Dealer</h2>
             <div className="bj-cards">
               {shownDealer.map((c, i) => (
@@ -148,7 +148,7 @@ export default function BlackjackPage() {
             </div>
             <p className="bj-total">{totalText(shownDealer)}</p>
           </div>
-          <div className="bj-hand" aria-label="Your hand">
+          <div className="bj-hand" role="group" aria-label="Your hand">
             <h2>You</h2>
             <div className="bj-cards">
               {player.map((c, i) => (
