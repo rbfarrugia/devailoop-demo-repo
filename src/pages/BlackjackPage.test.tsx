@@ -69,7 +69,7 @@ describe('BlackjackPage', () => {
     expect(tally()).toContain('Wins: 1')
   })
 
-  it('stand: dealer stops at 17 and player wins or loses', () => {
+  it('stand: dealer stops at 17 and player wins', () => {
     vi.useFakeTimers()
     stack(c('10'), c('10', 'hearts'), c('8'), c('7'))
     render(<BlackjackPage />)
@@ -95,5 +95,31 @@ describe('BlackjackPage', () => {
     click('Deal again')
     expect(screen.getByText('Push: it is a tie.')).toBeInTheDocument()
     expect(tally()).toBe('Wins: 1 · Losses: 1 · Pushes: 1')
+  })
+
+  it('loses and pushes on totals, updating the tally', () => {
+    vi.useFakeTimers()
+    stack(c('10'), c('10', 'hearts'), c('7'), c('8'))
+    render(<BlackjackPage />)
+    click('Deal')
+    click('Stand')
+    act(() => vi.advanceTimersByTime(500))
+    expect(screen.getByText('You lose.')).toBeInTheDocument()
+    expect(tally()).toBe('Wins: 0 · Losses: 1 · Pushes: 0')
+
+    stack(c('10'), c('10', 'hearts'), c('8'), c('8'))
+    click('Deal again')
+    click('Stand')
+    act(() => vi.advanceTimersByTime(500))
+    expect(screen.getByText('Push: it is a tie.')).toBeInTheDocument()
+    expect(tally()).toBe('Wins: 0 · Losses: 1 · Pushes: 1')
+  })
+
+  it('labels the hands as groups', () => {
+    stack(c('K'), c('9', 'hearts'), c('7'), c('8'))
+    render(<BlackjackPage />)
+    click('Deal')
+    expect(screen.getByRole('group', { name: "Dealer's hand" })).toBeInTheDocument()
+    expect(screen.getByRole('group', { name: 'Your hand' })).toBeInTheDocument()
   })
 })
