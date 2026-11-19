@@ -57,3 +57,82 @@ main {
   flex: 1;
   padding: 1.5rem 2rem;
 }
+
+.c4-setup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.c4-setup label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.c4-setup fieldset label {
+  flex-direction: row;
+  align-items: center;
+}
+
+.c4-player,
+.c4-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.c4-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 1.5rem;
+  font-weight: 600;
+}
+
+.c4-board {
+  display: inline-flex;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  background: #1d4ed8;
+  border-radius: 0.5rem;
+}
+
+.c4-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.2rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.c4-column:disabled {
+  cursor: default;
+}
+
+.c4-column:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.c4-disc {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: #f9fafb;
+}
+
+.c4-disc-small {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c4-win {
+  outline: 4px solid #fff;
+  box-shadow: 0 0 0 2px #000;
+}
