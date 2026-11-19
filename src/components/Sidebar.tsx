@@ -1,4 +1,4 @@
-import { CONNECT4_ROUTE, HOME_ROUTE } from '../router'
+import { BLACKJACK_ROUTE, CONNECT4_ROUTE, HOME_ROUTE } from '../router'
 
 type SidebarProps = { route: string }
 
@@ -26,6 +26,11 @@ export default function Sidebar({ route }: SidebarProps) {
         <li>
           <NavLink to={CONNECT4_ROUTE} route={route}>
             Connect 4
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={BLACKJACK_ROUTE} route={route}>
+            Blackjack
           </NavLink>
         </li>
       </ul>
