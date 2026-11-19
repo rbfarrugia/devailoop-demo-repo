@@ -4,7 +4,7 @@ A React app (Vite + TypeScript), tested with Vitest. For now it shows a single "
 
 ## Prerequisites
 
-- Node.js 20 or newer (`.nvmrc` pins 24; `nvm use` picks it up)
+- Node.js 22.22.2 or newer on 22, 24.15 or newer on 24, or 26+ (`.nvmrc` pins 24; `nvm use` picks it up)
 - npm (comes with Node)
 
 ## Running locally
