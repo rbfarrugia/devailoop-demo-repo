@@ -96,6 +96,9 @@ describe('Connect4Page', () => {
     act(() => {
       vi.advanceTimersByTime(1000)
     })
+    const discs = Array.from(document.querySelectorAll<HTMLElement>('.c4-column .c4-disc'))
+    expect(discs).toHaveLength(42)
+    expect(discs.every((d) => !d.style.background)).toBe(true)
     play()
     expect(screen.getByText("Player 1, it's your turn")).toBeInTheDocument()
   })

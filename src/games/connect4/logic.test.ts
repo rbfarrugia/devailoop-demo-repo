@@ -63,5 +63,9 @@ describe('connect4 logic', () => {
 
   it('is not a draw while moves remain or when someone won', () => {
     expect(isDraw(createBoard())).toBe(false)
+    const rows = ['1111222', '2211221', '1122112', '2211221', '1122112', '2211221']
+    const won = rows.map((r) => [...r].map((ch) => Number(ch))) as Board
+    expect(getWinner(won)).not.toBeNull()
+    expect(isDraw(won)).toBe(false)
   })
 })
