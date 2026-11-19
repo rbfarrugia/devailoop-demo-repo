@@ -136,3 +136,40 @@ main {
   outline: 4px solid #fff;
   box-shadow: 0 0 0 2px #000;
 }
+
+.bj-cards {
+  display: flex;
+  gap: 0.5rem;
+  min-height: 4rem;
+}
+
+.bj-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 4rem;
+  border: 1px solid #374151;
+  border-radius: 0.3rem;
+  background: #fff;
+  color: #111827;
+  font-weight: bold;
+}
+
+.bj-red {
+  color: #dc2626;
+}
+
+.bj-card-back {
+  background: repeating-linear-gradient(45deg, #1d4ed8, #1d4ed8 4px, #1e3a8a 4px, #1e3a8a 8px);
+}
+
+.bj-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bj-status {
+  font-weight: bold;
+  min-height: 1.5rem;
+}

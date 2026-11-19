@@ -1,7 +1,8 @@
 import Sidebar from './components/Sidebar'
+import BlackjackPage from './pages/BlackjackPage'
 import Connect4Page from './pages/Connect4Page'
 import WelcomePage from './pages/WelcomePage'
-import { CONNECT4_ROUTE, useHashRoute } from './router'
+import { BLACKJACK_ROUTE, CONNECT4_ROUTE, useHashRoute } from './router'
 
 function App() {
   const route = useHashRoute()
@@ -9,7 +10,15 @@ function App() {
   return (
     <div className="layout">
       <Sidebar route={route} />
-      <main>{route === CONNECT4_ROUTE ? <Connect4Page /> : <WelcomePage />}</main>
+      <main>
+        {route === CONNECT4_ROUTE ? (
+          <Connect4Page />
+        ) : route === BLACKJACK_ROUTE ? (
+          <BlackjackPage />
+        ) : (
+          <WelcomePage />
+        )}
+      </main>
     </div>
   )
 }

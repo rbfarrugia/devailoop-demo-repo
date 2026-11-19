@@ -51,4 +51,19 @@ describe('App', () => {
     })
     expect(screen.getByRole('heading', { name: 'Connect 4' })).toBeInTheDocument()
   })
+
+  it('navigates to Blackjack and back home', async () => {
+    render(<App />)
+    const link = screen.getByRole('link', { name: 'Blackjack' })
+    expect(link).toHaveAttribute('href', '#/games/blackjack')
+    fireEvent.click(link)
+    expect(await screen.findByRole('heading', { name: 'Blackjack' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Blackjack' })).toHaveAttribute('aria-current', 'page')
+    fireEvent.click(screen.getByRole('link', { name: 'Home' }))
+    expect(await screen.findByRole('heading', { name: 'Welcome' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Play Blackjack' })).toHaveAttribute(
+      'href',
+      '#/games/blackjack',
+    )
+  })
 })
